@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Road puzzle</title>
+    </head>
+    <body>
+        <div id="board">
+            <div></div>
+            <div class="hero">hero</div>
+            <div class="hero">hero</div>
+            <div class="hero">hero</div>
+            <div></div>
+            <div class="hero">hero</div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="hero">hero</div>
+            <div class="hero">hero</div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="hero">hero</div>
+            <div class="hero">hero</div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="tile"></div>
+            <div class="hero">hero</div>
+            <div></div>
+            <div class="hero">hero</div>
+            <div class="hero">hero</div>
+            <div class="hero">hero</div>
+            <div></div>
+        </div>
+        <div>
+            <div>
+                <label for="arc1-count">Arc1 Count</label>
+                <input type="number" value="3" id="arc1-count">
+            </div>
+            <div>
+                <label for="arcs2-count">Arcs2 Count</label>
+                <input type="number" value="2" id="arcs2-count">
+            </div>
+            <div>
+                <label for="bird-count">Bird Count</label>
+                <input type="number" value="2" id="bird-count">
+            </div>
+            <div>
+                <label for="bridge-cross-count">Bridge Cross Count</label>
+                <input type="number" value="1" id="bridge-cross-count">
+            </div>
+            <div>
+                <label for="cross-count">Cross Count</label>
+                <input type="number" value="1" id="cross-count">
+            </div>
+            <div>
+                <label for="board-rows-count">Board Rows</label>
+                <input type="number" value="3" id="board-rows-count">
+            </div>
+            <div>
+                <label for="board-cols-count">Board Cols</label>
+                <input type="number" value="3" id="board-cols-count">
+            </div>
+
+            <div>
+                <button id="game-run-button">Find all boards</button>
+            </div>
+        </div>
+
+        <style type="text/css" media="screen">
+body {
+    padding: 0;
+    margin: 0;
+}
+#board {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    background: gray;
+    /* background: url('board.png') no-repeat;
+    width: 649px;
+    height: 667px; */
+    width: 600px;
+    height: 600px;
+}
+
+.tile {
+    background-position: center center;
+    background-repeat: no-repeat;;
+}
+
+.tile[tile-animate-rotation='true'] {
+    transition: transform .1s;
+}
+
+.tile[tile-type='arc1'] {
+    background-image: url('img/tile-1-arc.png');
+}
+
+.tile[tile-type='arcs2'] {
+    background: url('img/tile-2-arcs.png');
+}
+
+.tile[tile-type='cross'] {
+    background-image: url('img/tile-cross.png');
+}
+
+.tile[tile-type='bird'] {
+    background-image: url('img/tile-bird.png');
+}
+
+.tile[tile-type='bridgecross'] {
+    background-image: url('img/tile-bridge-cross.png');
+}
+
+.tile[tile-rotation-angle='90'] {
+    transform: rotate(90deg);
+}
+
+.tile[tile-rotation-angle='180'] {
+    transform: rotate(180deg);
+}
+
+.tile[tile-rotation-angle='270'] {
+    transform: rotate(270deg);
+}
+
+        </style>
+
+        <script type="module">
+            import {
+                runNewGame
+            } from './build/main.js';
+
+            document.getElementById('game-run-button').addEventListener('click', runNewGame);
+
+        </script>
+    </body>
+</html>
